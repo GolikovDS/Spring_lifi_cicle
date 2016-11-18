@@ -2,6 +2,7 @@ package ru.gds.factory;
 
 
 import java.security.MessageDigest;
+import java.util.Arrays;
 
 public class MessageDigester {
     private MessageDigest digestl;
@@ -28,10 +29,10 @@ public class MessageDigester {
     }
 
     private void digest(String msg, MessageDigest digest) {
-        System. out. println ( "Using alogrithm: " + digest. getAlgorithm ());
+        System. out. println ( "Using alogrithm: " + digest.getAlgorithm());
         digest.reset();
-        byte [] bytes = msg. getBytes () ;
-        byte [] out = digest. digest (bytes);
-        System.out.println(out);
+        byte [] bytes = msg.getBytes() ;
+        byte [] out = digest.digest(bytes);
+        System.out.println(Arrays.asList(out).toString());
     }
 }

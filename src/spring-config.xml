@@ -12,15 +12,22 @@
 
     <context:annotation-config/>
 
-    <!--<bean id="parentBean" class="ru.gds.SimpleBean" p:age="25" p:name="Vova"/>-->
-    <!--<bean id="childBean" class="ru.gds.SimpleBean" p:age="40" parent="parentBean"/>-->
+    <!--<bean id="parentBean" class="ru.gds.Simple.SimpleBean" p:age="25" p:name="Vova"/>-->
+    <!--<bean id="childBean" class="ru.gds.Simple.SimpleBean" p:age="40" parent="parentBean"/>-->
 
-    <bean id="sb1" class="ru.gds.SimpleBean"
-          init-method="init" p:name="Chris Schaefer" p:age="32"/>
-    <bean id="sb2" class="ru.gds.SimpleBean"
-          init-method="init" p:age="32"/>
-    <bean id="sb3" class="ru.gds.SimpleBean"
-          init-method="init" p:name="Chris Schaefer"/>
+    <bean id="sb1" class="ru.gds.Simple.SimpleBean"
+          init-method="init" destroy-method="destroys" p:name="Chris Schaefer" p:age="32"/>
+    <bean id="sb2" class="ru.gds.Simple.SimpleBean"
+          init-method="init" destroy-method="destroys" p:age="32"/>
+    <bean id="sb3" class="ru.gds.Simple.SimpleBean"
+          init-method="init" destroy-method="destroys" p:name="Chris Schaefer"/>
 
+
+    <!--FACTORY-->
+    <bean id="shaDigest" class="ru.gds.factory.MessageDigestFactoryBean" p:algorithmName="SHA1"/>
+    <bean id="defaultDigest" class="ru.gds.factory.MessageDigestFactoryBean"/>
+    <bean id="digester" class="ru.gds.factory.MessageDigester"
+          p:digestl-ref="shaDigest"
+          p:digest2-ref="defaultDigest"/>
 
 </beans>
